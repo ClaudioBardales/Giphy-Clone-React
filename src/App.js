@@ -1,12 +1,13 @@
 import GlobalStyle from "./components/GlobalStyles";
+import Search from "./components/Search";
 
-function App() {
+const App = () => {
   return (
     <div>
       <GlobalStyle />
-      <h1>Giphy Clone</h1>
+      <Search />
     </div>
   );
-}
+};
 
 export default App;
