@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import Styled from "styled-components";
-import axios from "axios";
-import giphy from "../img/giphy.png";
+import React, { useEffect, useState } from 'react';
+import Styled from 'styled-components';
+import axios from 'axios';
+import giphy from '../img/giphy.png';
 
 function Giphy() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const results = await axios("https://api.giphy.com/v1/gifs/trending", {
+      const results = await axios('https://api.giphy.com/v1/gifs/trending', {
         params: {
-          api_key: "bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc",
+          api_key: 'bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc',
           limit: 15,
         },
       });
@@ -37,9 +37,9 @@ function Giphy() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const results = await axios("https://api.giphy.com/v1/gifs/search", {
+    const results = await axios('https://api.giphy.com/v1/gifs/search', {
       params: {
-        api_key: "bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc",
+        api_key: 'bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc',
         q: search,
       },
     });
@@ -74,12 +74,17 @@ display: grid;
 grid-template-columns: repeat(3,1fr);
 align-items: center;
 justify-items: center;
+margin: 2rem;
+@media (max-width: 635px){
+  grid-template-columns: repeat(2,1fr);
 
+@media (max-width: 425px){
+  grid-template-columns: 1fr;
 
 `;
 
 const SearchContainer = Styled.div`
-width: 50%;
+width: 70%;
 display: flex;
 margin: auto;
 flex-direction: column;
