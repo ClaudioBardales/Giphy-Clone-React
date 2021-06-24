@@ -47,8 +47,8 @@ function Giphy() {
   };
 
   return (
-    <div>
-      <Container>
+    <Container>
+      <SearchContainer>
         <StyledImg src={giphy} />
         <StyledForm>
           <StyledInput
@@ -58,11 +58,16 @@ function Giphy() {
           />
           <SubmitButton onClick={handleSubmit} type="submit" />
         </StyledForm>
-      </Container>
+      </SearchContainer>
       <Grid>{renderGifs()}</Grid>
-    </div>
+    </Container>
   );
 }
+
+const Container = Styled.div`
+min-height: 100vh;
+
+`;
 
 const Grid = Styled.div`
 display: grid;
@@ -73,7 +78,7 @@ justify-items: center;
 
 `;
 
-const Container = Styled.div`
+const SearchContainer = Styled.div`
 width: 50%;
 display: flex;
 margin: auto;
@@ -81,7 +86,7 @@ flex-direction: column;
 `;
 
 const StyledImg = Styled.img`
-width: 90%;
+width: 80%;
 margin: auto;
 `;
 
