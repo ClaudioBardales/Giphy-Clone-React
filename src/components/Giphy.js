@@ -113,6 +113,7 @@ font-size: 1.5rem;
 border: 0;
 padding-top: 5px;
 padding-bottom: 5px;
+cursor: pointer;
 color: white;
 `;
 
