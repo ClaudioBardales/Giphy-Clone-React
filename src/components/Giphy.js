@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 import axios from 'axios';
 import giphy from '../img/giphy.png';
 
-function Giphy() {
+const Giphy = () => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState([]);
   useEffect(() => {
@@ -62,7 +62,7 @@ function Giphy() {
       <Grid>{renderGifs()}</Grid>
     </Container>
   );
-}
+};
 
 const Container = Styled.div`
 min-height: 100vh;
