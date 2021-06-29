@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import Styled from 'styled-components';
-import axios from 'axios';
-import giphy from '../img/giphy.png';
+import React, { useEffect, useState } from "react";
+import Styled from "styled-components";
+import axios from "axios";
+import giphy from "../img/giphy.png";
 
 const Giphy = () => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const results = await axios('https://api.giphy.com/v1/gifs/trending', {
+      const results = await axios("https://api.giphy.com/v1/gifs/trending", {
         params: {
-          api_key: 'bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc',
+          api_key: "bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc",
           limit: 15,
         },
       });
@@ -25,7 +25,7 @@ const Giphy = () => {
     return data.map((el) => {
       return (
         <div key={el.id}>
-          <img src={el.images.fixed_width.url} />
+          <GifImg src={el.images.fixed_height.url} />
         </div>
       );
     });
@@ -37,9 +37,9 @@ const Giphy = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const results = await axios('https://api.giphy.com/v1/gifs/search', {
+    const results = await axios("https://api.giphy.com/v1/gifs/search", {
       params: {
-        api_key: 'bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc',
+        api_key: "bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc",
         q: search,
       },
     });
@@ -75,6 +75,7 @@ grid-template-columns: repeat(3,1fr);
 align-items: center;
 justify-items: center;
 margin: 2rem;
+gap: 1rem;
 @media (max-width: 635px){
   grid-template-columns: repeat(2,1fr);
 
@@ -84,7 +85,7 @@ margin: 2rem;
 `;
 
 const SearchContainer = Styled.div`
-width: 70%;
+width: 100%;
 display: flex;
 margin: auto;
 flex-direction: column;
@@ -93,6 +94,14 @@ flex-direction: column;
 const StyledImg = Styled.img`
 width: 80%;
 margin: auto;
+`;
+
+const GifImg = Styled.img`
+width: 45vw;
+height: 45vh;
+display: block;
+object-fit: fill;
+
 `;
 
 const StyledForm = Styled.form`
