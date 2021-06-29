@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import Styled from "styled-components";
-import axios from "axios";
-import giphy from "../img/giphy.png";
+import React, { useEffect, useState } from 'react';
+import Styled from 'styled-components';
+import axios from 'axios';
+import giphy from '../img/giphy.png';
 
 const Giphy = () => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const results = await axios("https://api.giphy.com/v1/gifs/trending", {
+      const results = await axios('https://api.giphy.com/v1/gifs/trending', {
         params: {
-          api_key: "bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc",
-          limit: 15,
+          api_key: 'bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc',
+          limit: 20,
         },
       });
       console.log(results);
@@ -37,9 +37,9 @@ const Giphy = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const results = await axios("https://api.giphy.com/v1/gifs/search", {
+    const results = await axios('https://api.giphy.com/v1/gifs/search', {
       params: {
-        api_key: "bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc",
+        api_key: 'bo7l8y4GctiRWvN7WQKm6NKC2TrmJEjc',
         q: search,
       },
     });
@@ -74,14 +74,12 @@ display: grid;
 grid-template-columns: repeat(3,1fr);
 align-items: center;
 justify-items: center;
-margin: 2rem;
+width: 80%;
 gap: 1rem;
+margin: auto;
+padding: 1.5rem;
 @media (max-width: 635px){
   grid-template-columns: repeat(2,1fr);
-
-@media (max-width: 425px){
-  grid-template-columns: 1fr;
-
 `;
 
 const SearchContainer = Styled.div`
@@ -92,23 +90,28 @@ flex-direction: column;
 `;
 
 const StyledImg = Styled.img`
-width: 80%;
+width: 45%;
 margin: auto;
 `;
 
 const GifImg = Styled.img`
-width: 45vw;
-height: 45vh;
-display: block;
+width: 25.8vw;
+height: 25.8vh;
 object-fit: fill;
+@media (max-width: 635px){
+  width: 38vw;
+  height: 38vw;
+}
+
 
 `;
 
 const StyledForm = Styled.form`
 display: flex;
+width: 50%;
+margin: auto;
 justify-content: center;
 align-items: center;
-padding-top: 1.5rem;
 `;
 
 const StyledInput = Styled.input`
