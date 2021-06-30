@@ -24,9 +24,9 @@ const Giphy = () => {
   const renderGifs = () => {
     return data.map((el) => {
       return (
-        <div key={el.id}>
+        <Wrapper key={el.id}>
           <GifImg src={el.images.fixed_height.url} />
-        </div>
+        </Wrapper>
       );
     });
   };
@@ -74,7 +74,7 @@ display: grid;
 grid-template-columns: repeat(3,1fr);
 align-items: center;
 justify-items: center;
-width: 80%;
+max-width: 1250px;
 gap: 1rem;
 margin: auto;
 padding: 1.5rem;
@@ -94,15 +94,18 @@ width: 45%;
 margin: auto;
 `;
 
+const Wrapper = Styled.div`
+  width: 100%;
+  object-fit: fill;
+  `;
+
 const GifImg = Styled.img`
-width: 25.8vw;
+width: 100%;
 height: 25.8vh;
 object-fit: fill;
 @media (max-width: 635px){
-  width: 38vw;
-  height: 38vw;
-}
-
+  width: 100%;  
+} 
 
 `;
 
